@@ -12,7 +12,8 @@
 
     <script>
       let h1Element = React.createElement("h1", {}, "Hello React !"); // virtual elements -> browser dom elements
-      ReactDOM.render(h1Element, document.querySelector("#root"));
+      let headerElement = React.createElement("header", {}, h1Element);
+      ReactDOM.render(headerElement, document.querySelector("#root"));
     </script>
   </body>
 </html>
