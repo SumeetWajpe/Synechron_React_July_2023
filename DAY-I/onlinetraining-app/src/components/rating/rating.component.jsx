@@ -5,7 +5,11 @@ export default class Rating extends Component {
     let ratings = [];
     for (let index = 0; index < this.props.maxStars; index++) {
       ratings.push(
-        <i className="fa-solid fa-star" style={{ color: "orange" }}></i>,
+        <i
+          className="fa-solid fa-star"
+          style={{ color: "orange" }}
+          key={index}
+        ></i>,
       );
     }
     return <div>{ratings}</div>;
