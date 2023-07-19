@@ -5,6 +5,7 @@ import Posts from "../postsWithuseEffect/postsWithuseEffect";
 import Navbar from "../navbar/navbar.component";
 import PostDetails from "../postdetails/postdetails.component";
 import CourseDetails from "../coursedetails/coursedetails.component";
+import NewCourse from "../newcourse/newcourse.component";
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
         <Route path="/posts" element={<Posts />} />
         <Route path="/postdetails/:pid" element={<PostDetails />} />
         <Route path="/coursedetails/:cid" element={<CourseDetails />} />
+        <Route path="/newcourse" element={<NewCourse />} />
       </Routes>
     </BrowserRouter>
   );

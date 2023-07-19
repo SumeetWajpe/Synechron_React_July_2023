@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 export default function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
           Online Training
@@ -24,6 +25,11 @@ export default function Navbar() {
             <li className="nav-item">
               <Link className="nav-link active" aria-current="page" to="/">
                 Courses
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/newcourse">
+                New Course
               </Link>
             </li>
             <li className="nav-item">
