@@ -3,11 +3,11 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var jwt = require("jsonwebtoken");
-
+var cors = require("cors");
 const SECRET_KEY = "SECRET_KEY";
 
 var app = express();
-
+app.use(cors());
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -19,6 +19,7 @@ app.post("/login", (req, res) => {
   // verify if the user exists ! DB
   // sign the token (create)
 
+  console.log(req.body);
   let payload = { name: req.body.uname, lastLogin: "Monday 25th" };
   jwt.sign(payload, SECRET_KEY, { expiresIn: "2 Days" }, (err, token) => {
     if (err) console.log(err);
@@ -35,7 +36,6 @@ app.post("/verify", (req, res) => {
   });
   res.json({ msg: "success" });
 });
-
 
 app.listen(4000, () => {
   console.log("Server running @ 4000 !");

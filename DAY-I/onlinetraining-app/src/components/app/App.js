@@ -1,12 +1,15 @@
-import React from "react";
+import React, { Suspense } from "react";
 import ListOfCourses from "../listofcourses/listofcourses.component";
 import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
-import Posts from "../postsWithuseEffect/postsWithuseEffect";
+// import Posts from "../postsWithuseEffect/postsWithuseEffect";
 import Navbar from "../navbar/navbar.component";
 import PostDetails from "../postdetails/postdetails.component";
 import CourseDetails from "../coursedetails/coursedetails.component";
 import NewCourse from "../newcourse/newcourse.component";
 
+const Posts = React.lazy(() =>
+  import("../postsWithuseEffect/postsWithuseEffect"),
+);
 export default function App() {
   return (
     <BrowserRouter>
@@ -15,7 +18,14 @@ export default function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<ListOfCourses />} />
-        <Route path="/posts" element={<Posts />} />
+        <Route
+          path="/posts"
+          element={
+            <Suspense fallback={<div>Loading...</div>}>
+              <Posts />
+            </Suspense>
+          }
+        />
         <Route path="/postdetails/:pid" element={<PostDetails />} />
         <Route path="/coursedetails/:cid" element={<CourseDetails />} />
         <Route path="/newcourse" element={<NewCourse />} />

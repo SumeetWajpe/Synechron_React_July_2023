@@ -4,6 +4,8 @@ import Navbar from "../navbar/navbar.component";
 import CourseDetails from "../coursedetails/coursedetails.component";
 import NewCourse from "../newcourse/newcourse.component";
 import CartSummary from "../cart/cartsummary/cartsummary.component";
+import Login from "../login/login.component";
+
 function App() {
   return (
     <BrowserRouter>
@@ -11,7 +13,10 @@ function App() {
       {/* <Link to="/">Courses</Link> | <Link to="/posts">Posts</Link> */}
       <Navbar />
       <Routes>
-        <Route path="/" element={<ListOfCourses />} />
+        <Route path="/" element={<Login />} />
+
+        <Route path="/courses" element={<ListOfCourses />} />
+
         {/* <Route path="/posts" element={<Posts />} /> */}
         {/* <Route path="/postdetails/:pid" element={<PostDetails />} /> */}
         <Route path="/coursedetails/:cid" element={<CourseDetails />} />
