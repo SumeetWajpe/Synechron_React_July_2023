@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import Rating from "../rating/rating.component";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 export default function Course(props) {
+  let [currLikes, setCurrLikes] = useState(props.coursedetails.likes);
   return (
     <div className="col-md-3 ">
       <div className="card m-2 shadow rounded-0">
@@ -23,8 +25,12 @@ export default function Course(props) {
           </div>
           <p className="card-text">₹. {props.coursedetails.price}</p>
 
-          <button className="btn btn-outline-primary">
-            {props.coursedetails.likes}{" "}
+          <button
+            className="btn btn-outline-primary"
+            onClick={() => setCurrLikes(currLikes + 1)}
+          >
+            {/* {props.coursedetails.likes}{" "} */}
+            {currLikes}
             <i className="fa-solid fa-thumbs-up"></i>
           </button>
           <button className="btn btn-outline-danger mx-1">

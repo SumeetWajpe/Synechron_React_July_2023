@@ -1,5 +1,7 @@
-import React, { Component, useEffect, useState } from "react";
+import React from "react";
 import Course from "../course/course.component";
+import { useState } from "react";
+import { useEffect } from "react";
 
 export default function ListOfCourses() {
   let [courses, setCourses] = useState([]);

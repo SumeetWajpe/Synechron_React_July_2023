@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Rating from "../rating/rating.component";
+import { useSelector } from "react-redux";
 
 export default function CourseDetails() {
-  let { cid } = useParams();
-  let [course, setCourse] = useState({});
-  useEffect(() => {
-    fetch("http://localhost:3005/courses/" + cid)
-      .then(res => res.json())
-      .then(courseResponse => setCourse(courseResponse));
-  }, []);
+  let { cid } = useParams(); // fetches cid from url
+  const courses = useSelector(store => store.courses);
+  const course = courses.find(c => c.id == cid);
+
   let content;
   if (course?.title) {
     content = (
