@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import CartCount from "../cart/cartcount/cartcount.componen";
 
 export default function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
-      
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
           Online Training
@@ -39,6 +39,7 @@ export default function Navbar() {
             </li>
           </ul>
         </div>
+        <CartCount />
       </div>
     </nav>
   );
