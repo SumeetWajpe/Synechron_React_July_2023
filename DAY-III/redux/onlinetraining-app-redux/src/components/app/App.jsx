@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 import Navbar from "../navbar/navbar.component";
 import CourseDetails from "../coursedetails/coursedetails.component";
 import NewCourse from "../newcourse/newcourse.component";
+import CartSummary from "../cart/cartsummary/cartsummary.component";
 function App() {
   return (
     <BrowserRouter>
@@ -15,6 +16,7 @@ function App() {
         {/* <Route path="/postdetails/:pid" element={<PostDetails />} /> */}
         <Route path="/coursedetails/:cid" element={<CourseDetails />} />
         <Route path="/newcourse" element={<NewCourse />} />
+        <Route path="/cartsummary" element={<CartSummary />} />
       </Routes>
     </BrowserRouter>
   );
