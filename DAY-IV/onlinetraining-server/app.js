@@ -26,6 +26,17 @@ app.post("/login", (req, res) => {
   });
 });
 
+app.post("/verify", (req, res) => {
+  const authHeader = req.headers.authorization; // Bearer token
+  const token = authHeader.split(" ")[1];
+  jwt.verify(token, SECRET_KEY, (err, decodedToken) => {
+    if (err) return res.status(500).json({ err: "Invalid Token" });
+    console.log(decodedToken);
+  });
+  res.json({ msg: "success" });
+});
+
+
 app.listen(4000, () => {
   console.log("Server running @ 4000 !");
 });
