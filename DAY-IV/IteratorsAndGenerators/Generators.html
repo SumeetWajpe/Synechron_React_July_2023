@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function* AGenerator() {
+        console.log("started..");
+        yield 100; // partially return 100 value and pause execution of the function
+        console.log("after yield");
+        yield 150;
+        console.log("after yield");
+        return 200;
+      }
+
+      let itr = AGenerator();
+      console.log(itr.next());
+      console.log("Back in the execution (after next call) ");
+      console.log(itr.next());
+      console.log(itr.next());
+    </script>
+  </head>
+  <body></body>
+</html>

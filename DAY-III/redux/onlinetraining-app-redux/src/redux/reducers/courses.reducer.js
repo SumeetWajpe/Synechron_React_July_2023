@@ -3,10 +3,18 @@ let initialState = [];
 
 export let fetchAllCourses = createAsyncThunk(
   "courses/getAllCourses",
-  async () => {
-    let response = await fetch("http://localhost:3005/courses");
-    let allCourses = await response.json();
-    return allCourses;
+  async (_, { rejectWithValue }) => {
+    try {
+      let response = await fetch("http://localhost:3005/courses");
+      if (response.ok) {
+        let allCourses = await response.json();
+        return allCourses;
+      } else {
+        throw new Error("Something went wrong !");
+      }
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
   },
 );
 
@@ -28,9 +36,12 @@ export const coursesSlice = createSlice({
   },
   extraReducers: builder => {
     builder.addCase(fetchAllCourses.fulfilled, (store, action) => {
-      console.log(action);
       let fetchedCourses = action.payload;
       return fetchedCourses;
+    });
+    builder.addCase(fetchAllCourses.rejected, (store, action) => {
+      console.log(action);
+      return [];
     });
   },
 });

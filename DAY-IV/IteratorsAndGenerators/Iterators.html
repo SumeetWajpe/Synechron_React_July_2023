@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let cars = ["BMW", "AUDI", "MERC"];
+
+      let itr = cars[Symbol.iterator]();
+      
+
+      console.log(itr.next());
+      console.log(itr.next());
+      console.log(itr.next());
+      console.log(itr.next());
+
+      //   for (const car of cars) {
+      //     console.log(car);
+      //   }
+
+      //   let player = {
+      //     name: "Carlos Alcaraz",
+      //     isSeedOne: true,
+      //     titles: ["Wimbledon"],
+      //   };
+
+      //   for (const prop of player) {
+      //     console.log(prop);
+      //   }
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,4 @@
+export const sagaactions = {
+  FETCH_ALL_COURSES_ASYNC: "FETCH_ALL_COURSES_ASYNC",
+  ADD_NEW_COURSE: "ADD_NEW_COURSE",
+};
